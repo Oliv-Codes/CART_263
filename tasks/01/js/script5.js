@@ -29,7 +29,6 @@ function setup() {
 }
 
 function draw() {
-    // refresh background each frame so hover highlights update
     background(sky.r, sky.g, sky.b);
 
     // draw the orange square (will use hover color if mouse is over it)
