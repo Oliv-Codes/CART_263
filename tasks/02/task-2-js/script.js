@@ -71,22 +71,22 @@ document.getElementsByClassName("content-container")[1].style.background = "purp
 /*************************************** */
 /* 3: Change the src element of the first image element on the page to be ...
 /***CODE */
-
+document.getElementsByClassName("img-image")[0].src = "task-2-images/seven.png";
 /*************************************** */
 /* 4: Select the third paragraph element on the page and 
 replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123`
 /***CODE */
-
+document.getElementById("3").innerHTML = "<h2>TEST 123</h2>"
 /*************************************** */
 /* 5: Select the fourth paragraph element on the page and 
 add to the existing content an h2 element containing the text `TEST 123`
 /***CODE */
-
+document.getElementById("4").innerHTML += "<h2>TEST 123</h2>";
 /*************************************** */
 /* 6: Select the fifth paragraph element on the page and add to the existing content 
 an img element that holds `one.png`, and add the class newStyle to said paragraph element.
 /***CODE */
-
+document.getElementById("6").innerHTML += "<img class = newStyle src=task-2-images/one.png>";
 
 /*************************************** */
 /* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
@@ -96,7 +96,23 @@ assign the element from innerContainers variable with the same index
 (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
 a background using that color.
 /***CODE */
+let colors = ['red','blue','green','orange'];
 
+// Access all elements with class name `inner-container`
+const innerContainers = document.getElementsByClassName('inner-container');
+
+// Iterate over colors and assign matching background to innerContainers by index
+for (let i = 0; i < colors.length && i < innerContainers.length; i++) {
+    innerContainers[i].style.background = colors[i];
+    console.log(`innerContainers[${i}] background set to ${colors[i]}`);
+}
+
+/***OUTPUT: 
+ * innerContainers[0] background set to red
+ * innerContainers[1] background set to blue
+ * innerContainers[2] background set to green
+ * innerContainers[3] background set to orange
+ */
 /*************************************** */
 /*** END PART TWO MODIFY */ 
 
