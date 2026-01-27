@@ -7,105 +7,105 @@ console.log("we are a go!")
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
 /***CODE */
-console.log(document.getElementsByTagName("p"));
-/***OUTPUT: 
- HTMLCollection(9) [p#1, p#2.img-descript, p#3.img-descript, p#4.img-descript, p#5.img-descript, p#6.img-descript, p#7.img-descript, p#8.img-descript, p#9.img-descript] 
+// console.log(document.getElementsByTagName("p"));
+// /***OUTPUT: 
+//  HTMLCollection(9) [p#1, p#2.img-descript, p#3.img-descript, p#4.img-descript, p#5.img-descript, p#6.img-descript, p#7.img-descript, p#8.img-descript, p#9.img-descript] 
 
 
 
-/*************************************** */
-/* 2: only the first paragraph element */
-/***CODE */
-console.log(document.getElementsByTagName("p"))
-/***OUTPUT: 
- <p id="1">
+// /*************************************** */
+// /* 2: only the first paragraph element */
+// /***CODE */
+// console.log(document.getElementsByTagName("p"))
+// /***OUTPUT: 
+//  <p id="1">
 
 
-/*************************************** */
-/* 3: all elements with the class inner-container */
-/***CODE */
-console.log(document.getElementsByTagName("p")[0]);console.log(document.getElementsByClassName("inner-container"));
-/***OUTPUT: 
-{ 0: div.inner-container, 1: div.inner-container, 2: div.inner-container, 3: div.inner-container, 4: div.inner-container, 5: div.inner-container, 6: div.inner-container, 7: div.inner-container, length: 8 }
+// /*************************************** */
+// /* 3: all elements with the class inner-container */
+// /***CODE */
+// console.log(document.getElementsByTagName("p")[0]);console.log(document.getElementsByClassName("inner-container"));
+// /***OUTPUT: 
+// { 0: div.inner-container, 1: div.inner-container, 2: div.inner-container, 3: div.inner-container, 4: div.inner-container, 5: div.inner-container, 6: div.inner-container, 7: div.inner-container, length: 8 }
 
-/*************************************** */
-/* 4: the last image element inside the element that has the class img-container */
-/***CODE */
-console.log(document.getElementsByClassName("img-image")[9]);
-/***OUTPUT: 
-undefine
+// /*************************************** */
+// /* 4: the last image element inside the element that has the class img-container */
+// /***CODE */
+// console.log(document.getElementsByClassName("img-image")[9]);
+// /***OUTPUT: 
+// undefine
 
-/*************************************** */
-/* 5A: all h2 elements */
-/* 5B: length of the list in 5A */
-/* 5C: the text content of the first element in the list from 5A */
-/***CODE */
-/***OUTPUT: 
- * 
- */
-
-
-/*************************************** */
-/* 6: the element with id name parent */
-/***CODE */
-console.log(document.getElementById("parent"));
-/***OUTPUT: 
-<section id="parent">
-
-/*************************************** */
-/*** END PART ONE ACCESS */ 
+// /*************************************** */
+// /* 5A: all h2 elements */
+// /* 5B: length of the list in 5A */
+// /* 5C: the text content of the first element in the list from 5A */
+// /***CODE */
+// /***OUTPUT: 
+//  * 
+//  */
 
 
-/*************************************** */
-/*** START PART TWO MODIFY */ 
-/*************************************** */
-/* 1: Select the first paragraph and replace the text within the paragraph... */
-/***CODE */
-document.getElementById("1").textContent = "Olivia, Jan 20";
-/*************************************** */
-/* 2: Select all elements in the HTML that have the class name content-container
- and change the background color ... of first and second ...*/
-/***CODE */
-document.getElementsByClassName("content-container")[0].style.background = "orange";
-document.getElementsByClassName("content-container")[1].style.background = "purple";
-/*************************************** */
-/* 3: Change the src element of the first image element on the page to be ...
-/***CODE */
-document.getElementsByClassName("img-image")[0].src = "task-2-images/seven.png";
-/*************************************** */
-/* 4: Select the third paragraph element on the page and 
-replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123`
-/***CODE */
-document.getElementById("3").innerHTML = "<h2>TEST 123</h2>"
-/*************************************** */
-/* 5: Select the fourth paragraph element on the page and 
-add to the existing content an h2 element containing the text `TEST 123`
-/***CODE */
-document.getElementById("4").innerHTML += "<h2>TEST 123</h2>";
-/*************************************** */
-/* 6: Select the fifth paragraph element on the page and add to the existing content 
-an img element that holds `one.png`, and add the class newStyle to said paragraph element.
-/***CODE */
-document.getElementById("6").innerHTML += "<img class = newStyle src=task-2-images/one.png>";
+// /*************************************** */
+// /* 6: the element with id name parent */
+// /***CODE */
+// console.log(document.getElementById("parent"));
+// /***OUTPUT: 
+// <section id="parent">
 
-/*************************************** */
-/* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
-then access all elements with class name inner-container and save to a variable called `innerContainers`. 
-Next, iterate over the colors array, and for each color: 
-assign the element from innerContainers variable with the same index 
-(i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
-a background using that color.
-/***CODE */
-let colors = ['red','blue','green','orange'];
+// /*************************************** */
+// /*** END PART ONE ACCESS */ 
 
-// Access all elements with class name `inner-container`
-const innerContainers = document.getElementsByClassName('inner-container');
 
-// Iterate over colors and assign matching background to innerContainers by index
-for (let i = 0; i < colors.length && i < innerContainers.length; i++) {
-    innerContainers[i].style.background = colors[i];
-    console.log(`innerContainers[${i}] background set to ${colors[i]}`);
-}
+// /*************************************** */
+// /*** START PART TWO MODIFY */ 
+// /*************************************** */
+// /* 1: Select the first paragraph and replace the text within the paragraph... */
+// /***CODE */
+// document.getElementById("1").textContent = "Olivia, Jan 20";
+// /*************************************** */
+// /* 2: Select all elements in the HTML that have the class name content-container
+//  and change the background color ... of first and second ...*/
+// /***CODE */
+// document.getElementsByClassName("content-container")[0].style.background = "orange";
+// document.getElementsByClassName("content-container")[1].style.background = "purple";
+// /*************************************** */
+// /* 3: Change the src element of the first image element on the page to be ...
+// /***CODE */
+// document.getElementsByClassName("img-image")[0].src = "task-2-images/seven.png";
+// /*************************************** */
+// /* 4: Select the third paragraph element on the page and 
+// replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123`
+// /***CODE */
+// document.getElementById("3").innerHTML = "<h2>TEST 123</h2>"
+// /*************************************** */
+// /* 5: Select the fourth paragraph element on the page and 
+// add to the existing content an h2 element containing the text `TEST 123`
+// /***CODE */
+// document.getElementById("4").innerHTML += "<h2>TEST 123</h2>";
+// /*************************************** */
+// /* 6: Select the fifth paragraph element on the page and add to the existing content 
+// an img element that holds `one.png`, and add the class newStyle to said paragraph element.
+// /***CODE */
+// document.getElementById("6").innerHTML += "<img class = newStyle src=task-2-images/one.png>";
+
+// /*************************************** */
+// /* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
+// then access all elements with class name inner-container and save to a variable called `innerContainers`. 
+// Next, iterate over the colors array, and for each color: 
+// assign the element from innerContainers variable with the same index 
+// (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
+// a background using that color.
+// /***CODE */
+// let colors = ['red','blue','green','orange'];
+
+// // Access all elements with class name `inner-container`
+// const innerContainers = document.getElementsByClassName('inner-container');
+
+// // Iterate over colors and assign matching background to innerContainers by index
+// for (let i = 0; i < colors.length && i < innerContainers.length; i++) {
+//     innerContainers[i].style.background = colors[i];
+//     console.log(`innerContainers[${i}] background set to ${colors[i]}`);
+// }
 
 /***OUTPUT: 
  innerContainers[0] background set to red
@@ -132,7 +132,19 @@ for (let i = 0; i < colors.length && i < innerContainers.length; i++) {
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
 
+let allPTagsThree = document.querySelectorAll("p");
+function customCreateElement(parent) {
+    //body
+    let newElement = document.createElement("p");
+    newElement.textContent = "New Paragraph";
+    newElement.style.backgroundColor = "green";
+    newElement.style.color = "white"
+    parent.appendChild(newElement);
+}
 
+for(let pTag of allPTagsThree){
+    customCreateElement(pTag)
+}
 /***EXPLANATION::
  * 
  * 
