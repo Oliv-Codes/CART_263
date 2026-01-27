@@ -48,9 +48,9 @@ undefine
 /*************************************** */
 /* 6: the element with id name parent */
 /***CODE */
+console.log(document.getElementById("parent"));
 /***OUTPUT: 
- * 
- */
+<section id="parent">
 
 /*************************************** */
 /*** END PART ONE ACCESS */ 
@@ -61,11 +61,13 @@ undefine
 /*************************************** */
 /* 1: Select the first paragraph and replace the text within the paragraph... */
 /***CODE */
+document.getElementById("1").textContent = "Olivia, Jan 20";
 /*************************************** */
 /* 2: Select all elements in the HTML that have the class name content-container
  and change the background color ... of first and second ...*/
 /***CODE */
-
+document.getElementsByClassName("content-container")[0].style.background = "orange";
+document.getElementsByClassName("content-container")[1].style.background = "purple";
 /*************************************** */
 /* 3: Change the src element of the first image element on the page to be ...
 /***CODE */
