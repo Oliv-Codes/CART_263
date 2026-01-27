@@ -108,10 +108,10 @@ for (let i = 0; i < colors.length && i < innerContainers.length; i++) {
 }
 
 /***OUTPUT: 
- * innerContainers[0] background set to red
- * innerContainers[1] background set to blue
- * innerContainers[2] background set to green
- * innerContainers[3] background set to orange
+ innerContainers[0] background set to red
+ innerContainers[1] background set to blue
+ innerContainers[2] background set to green
+ innerContainers[3] background set to orange
  */
 /*************************************** */
 /*** END PART TWO MODIFY */ 
