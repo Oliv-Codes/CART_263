@@ -25,24 +25,29 @@ function setup_D() {
 
     parentCanvas.style.background  = "rgb(140, 10, 105)";
 
-
     let button = document.createElement("div");
     button.classList.add("TEAM_D_box");
     button.textContent = "CLICK HERE";
+    button.style.position = "relative";
+    button.style.zIndex = "10";
     parentCanvas.appendChild(button);
 
-    //button.addEventListener("click");
-
-  let particleDiv = this.document.createElement("div");
-  particleDiv.id= "particle"
-  parentCanvas.appendChild(particleDiv);
-  particleDiv.classList.add ("TEAM_D_particle")
-  particleDiv.style.background  = "rgb(255, 255, 255)";
-  particleDiv.style.width = "100px"
-  particleDiv.style.height = "100px"
-  particleDiv.style.left = "10px";
-  particleDiv.style.top = "10px";
-      
+  button.addEventListener("click", function() {
+    let particleDiv = document.createElement("div");
+    particleDiv.id= "particle"
+    parentCanvas.appendChild(particleDiv);
+    particleDiv.classList.add ("TEAM_D_particle")
+    particleDiv.style.background  = "rgb(255, 255, 255)";
+    particleDiv.style.width = "90px"
+    particleDiv.style.height = "90px"
+    
+    let randomLeft = Math.random() * (parentCanvas.clientWidth - 90);
+    let randomTop = Math.random() * (parentCanvas.clientHeight - 90);
+    
+    particleDiv.style.left = randomLeft + "px";
+    particleDiv.style.top = randomTop + "px";
+    particleDiv.style.position = "absolute";
+  });
 
   }
 
