@@ -182,17 +182,6 @@ body{
 
 }
 
-.TEAM_D_counter{
-  width:max-content;
-  background-color: rgb(214, 172, 66);
-  position : absolute;
-  top: 10%;
-	left: 38%;
-  color:white;
-  margin:1px;
-  padding: 12px;
-}
-
 .TEAM_D_particle{
   border-radius: 100%;
 }
