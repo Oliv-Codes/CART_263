@@ -1,0 +1,10 @@
+body {
+  padding: 30px;
+  display: grid; 
+  justify-content: center;
+  align-content: center;
+}
+.im {
+  height: 780px;
+  object-fit: contain;
+}
