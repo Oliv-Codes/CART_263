@@ -1,3 +1,9 @@
+let circles = [];
+let drawingBoardA_global = null;
+let circleColors = ["#ff0000", "#FFC300", "#167c30"];
+let colorIndex = 0;
+
+
 class CircularObj {
   constructor(x, y, radius, f_color, s_color, context) {
     // We write instructions to set up a Flower here
@@ -36,3 +42,44 @@ class CircularObj {
     //console.log("circle update");
   }
 }
+
+function circleButtons() {
+  addCircleBtn = document.getElementById("addCircle");
+  removeCircleBtn = document.getElementById("removeCircle");
+  
+  addCircleBtn.addEventListener("click", function () {
+      // Create a new circle with all required parameters including context
+      if (drawingBoardA_global) {
+          let c = new CircularObj(Math.random() * 350, Math.random() * 250, 20, "#ff0000", "#000000", drawingBoardA_global.context); 
+          circles.push(c);
+          drawingBoardA_global.addObj(c);
+          console.log("Circle added. Total:", circles.length);
+      }
+  });
+
+  removeCircleBtn.addEventListener("click", function () {
+      if (circles.length > 0) {
+          circles.pop();
+          drawingBoardA_global.objectsOnCanvas.pop();
+          console.log("Circle removed. Total:", circles.length);
+      }
+  });
+}
+
+// Legacy setup - will be overridden by initCircleButtons in start.js
+addCircleBtn.addEventListener("click", function () {
+    // Create a new circle with all required parameters including context
+    if (drawingBoardA_global) {
+        let c = new CircularObj(Math.random() * 350, Math.random() * 250, 20, "#ff0000", "#167c30", drawingBoardA_global.context); 
+        circles.push(c);
+        drawingBoardA_global.addObj(c);
+        console.log("Circle added. Total:", circles.length);
+    }
+});
+
+removeCircleBtn.addEventListener("click", function () {
+    if (circles.length > 0) {
+        circles.pop();
+        console.log("Circle removed. Total:", circles.length);
+    }
+});

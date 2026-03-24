@@ -27,7 +27,10 @@ let drawingBoardA = new DrawingBoard(theCanvases[0],theContexts[0],theCanvases[0
 //add a circular object to canvas A
 drawingBoardA.addObj(new CircularObj(100,100,20,"#FFC300","#E6E6FA", drawingBoardA.context))
 drawingBoardA.display();
-
+// Make drawingBoardA available to CircularObj.js button handlers
+drawingBoardA_global = drawingBoardA;
+// Initialize circle buttons
+circleButtons();
 
 
 let drawingBoardB = new DrawingBoard(theCanvases[1],theContexts[1],theCanvases[1].id);
