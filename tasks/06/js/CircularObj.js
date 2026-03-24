@@ -71,7 +71,7 @@ function circleButtons() {
   addCircleBtn.addEventListener("click", function () {
       // Create a new circle with all required parameters including context
       if (drawingBoardA_global) {
-          let c = new CircularObj(Math.random() * 350, Math.random() * 250, 20, "#ff0000", "#000000", drawingBoardA_global.context); 
+          let c = new CircularObj(Math.random() * 350, Math.random() * 250, 20, "#ff0000", "#e1ff00", drawingBoardA_global.context); 
           circles.push(c);
           drawingBoardA_global.addObj(c);
           console.log("Circle added. Total:", circles.length);
