@@ -1,7 +1,5 @@
 let circles = [];
 let drawingBoardA_global = null;
-let circleColors = ["#ff0000", "#FFC300", "#167c30"];
-let colorIndex = 0;
 
 
 class CircularObj {
@@ -16,7 +14,10 @@ class CircularObj {
     this.startAngle = 0;
     this.endAngle = Math.PI * 2; //full rotation
     this.context = context;
+    this.isHovered = false;  
   }
+
+  
 
   display() {
     this.context.fillStyle = this.fill_color; // change the color we are using
@@ -66,20 +67,3 @@ function circleButtons() {
   });
 }
 
-// Legacy setup - will be overridden by initCircleButtons in start.js
-addCircleBtn.addEventListener("click", function () {
-    // Create a new circle with all required parameters including context
-    if (drawingBoardA_global) {
-        let c = new CircularObj(Math.random() * 350, Math.random() * 250, 20, "#ff0000", "#167c30", drawingBoardA_global.context); 
-        circles.push(c);
-        drawingBoardA_global.addObj(c);
-        console.log("Circle added. Total:", circles.length);
-    }
-});
-
-removeCircleBtn.addEventListener("click", function () {
-    if (circles.length > 0) {
-        circles.pop();
-        console.log("Circle removed. Total:", circles.length);
-    }
-});
