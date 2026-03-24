@@ -17,7 +17,21 @@ class CircularObj {
     this.isHovered = false;  
   }
 
-  
+    update(mouseX, mouseY) {
+    // distance from mouse to circle center
+    let dx = mouseX - this.x;
+    let dy = mouseY - this.y;
+    let dist = Math.sqrt(dx * dx + dy * dy);
+
+    // hover detection
+    if (dist < this.originalRadius) {
+      this.isHovered = true;
+      this.radius = this.originalRadius + 10;   // grow
+    } else {
+      this.isHovered = false;
+      this.radius = this.originalRadius;        // shrink back
+    }
+  }
 
   display() {
     this.context.fillStyle = this.fill_color; // change the color we are using
