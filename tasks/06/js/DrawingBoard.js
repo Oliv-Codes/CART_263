@@ -76,8 +76,8 @@ class DrawingBoard {
   animate() {
     this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
     for (let i = 0; i < this.objectsOnCanvas.length; i++) {
-     this.objectsOnCanvas[i].update();
-     this.objectsOnCanvas[i].display();
+      this.objectsOnCanvas[i].update(this.mouseOffsetX, this.mouseOffsetY);
+      this.objectsOnCanvas[i].display();
     }
   }
 

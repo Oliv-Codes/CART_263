@@ -9,27 +9,33 @@ class CircularObj {
     this.x = x;
     this.y = y;
     this.radius = radius;
+    this.originalRadius = radius;
     this.fill_color = f_color;
     this.stroke_color = s_color;
     this.startAngle = 0;
     this.endAngle = Math.PI * 2; //full rotation
     this.context = context;
-    this.isHovered = false;  
+    this.isHovered = false;
   }
 
-    update(mouseX, mouseY) {
-    // distance from mouse to circle center
-    let dx = mouseX - this.x;
-    let dy = mouseY - this.y;
-    let dist = Math.sqrt(dx * dx + dy * dy);
+  update(mouseX, mouseY) {
+    if (typeof mouseX === 'number' && typeof mouseY === 'number') {
+      // distance from mouse to circle center
+      let dx = mouseX - this.x;
+      let dy = mouseY - this.y;
+      let dist = Math.sqrt(dx * dx + dy * dy);
 
-    // hover detection
-    if (dist < this.originalRadius) {
-      this.isHovered = true;
-      this.radius = this.originalRadius + 10;   // grow
+      // hover detection
+      if (dist < this.originalRadius) {
+        this.isHovered = true;
+        this.radius = this.originalRadius + 10; // grow
+      } else {
+        this.isHovered = false;
+        this.radius = this.originalRadius; // shrink back
+      }
     } else {
       this.isHovered = false;
-      this.radius = this.originalRadius;        // shrink back
+      this.radius = this.originalRadius;
     }
   }
 
@@ -51,11 +57,11 @@ class CircularObj {
     this.context.stroke();
   }
 
-  update() {
+  //update() {
     //update circle
     //this.x += 1;
     //console.log("circle update");
-  }
+  //}
 }
 
 function circleButtons() {
