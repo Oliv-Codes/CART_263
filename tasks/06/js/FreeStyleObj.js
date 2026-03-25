@@ -11,6 +11,7 @@ class FreeStyleObj {
       this.yOffset = 20;
       this.angularSpeed = .07;
       this.context =context;
+      this.hue = 0
 
     }
   
@@ -28,10 +29,16 @@ class FreeStyleObj {
       this.context.stroke(); //set the stroke
     }
 
-    update(){
-        //update freestyle
-       // console.log("free style update")
-       // this.x+=1;
+    update(micData){
+        //update freestyle based on microphone
+        if (micData) {
+          this.yOffset = 15 + micData.amplitude / 1;
+          //this.length = 150 + micData.frequency;
+        }
+          //color
+  this.hue = (this.hue + 2) % 360; 
+  this.stroke_color = `hsl(${this.hue}, 100%, 50%)`;
+
     }
   }
   

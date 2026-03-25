@@ -11,6 +11,8 @@ class RectangularObj {
     this.startAngle = 0;
     this.endAngle = Math.PI * 2; //full rotation
     this.context = context;
+    this.vx = 2; 
+    this.hue = 0
   }
 
   display() {
@@ -21,9 +23,20 @@ class RectangularObj {
     this.context.strokeRect(this.x, this.y,this.width, this.height);
   }
 
-  update(){
-    //update freestyle
-   // this.x+=1;
-    //console.log("rectangle update")
+update(micData) {
+  if (micData) {
+    this.width = 30 + micData.amplitude / 2;
+    this.height = 40 + micData.frequency / 2;
+  }
+
+  // Move
+  this.x += this.vx;
+
+  if (this.x <= 0 || this.x + this.width >= this.context.canvas.width) {
+    this.vx *= -1; 
+  }
+  //color
+  this.hue = (this.hue + 2) % 360; 
+  this.fill_color = `hsl(${this.hue}, 100%, 50%)`;
 }
 }
