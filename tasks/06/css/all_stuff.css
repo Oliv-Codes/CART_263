@@ -36,6 +36,14 @@ main {
     position:relative;
     /* position:absolute; */
 }
+
+.canvas-label {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
 .container{
     margin:10px;
     width:400px;

@@ -76,10 +76,12 @@ class VideoObj {
   }
   //called when rectangle Pos is to be updated
   updatePositionRect(mx,my){
-     /** FILL IN */
+    this.shapeX = mx - 25;
+    this.shapeY = my - 25;
   }
-  update(videoElement) {
+  update(videoElement, mouseX, mouseY) {
     this.videoElement = videoElement;
+    this.updatePositionRect(mouseX, mouseY);
   }
 
 }
