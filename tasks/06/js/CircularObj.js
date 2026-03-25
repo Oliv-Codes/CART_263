@@ -79,7 +79,7 @@ function circleButtons() {
         
 
         //size
-        let randomRadius = 5 + Math.random() * 20;
+        let randomRadius = 16 + Math.random() * 20;
         let c = new CircularObj(
           Math.random() * 350,
           Math.random() * 250,
@@ -87,7 +87,7 @@ function circleButtons() {
           randomColor,
           "#000000",
           drawingBoardA_global.context
-          );
+        );
 
         circles.push(c);
         drawingBoardA_global.addObj(c);
