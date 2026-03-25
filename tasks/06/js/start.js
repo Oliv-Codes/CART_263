@@ -3,6 +3,14 @@ window.onload = go_all_stuff;
 function go_all_stuff(){
 console.log("go");
 
+let colorData = null;
+
+fetch("colors.json")
+  .then(res => res.json())
+  .then(data => {
+    colorData = data.colors;
+  });
+
 /* for loading the video */
 let videoEl = document.getElementById("video-birds");
 window.addEventListener("click", function(){
