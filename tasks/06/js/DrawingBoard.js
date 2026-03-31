@@ -6,6 +6,7 @@ class DrawingBoard {
     this.objectsOnCanvas = [];
     let self = this;
     this.drawingBoardId = drawingBoardId;
+
     //each element has a mouse clicked and a mouse over
     this.canvas.addEventListener("click", function (e) {
       self.clickCanvas(e);
@@ -43,6 +44,18 @@ class DrawingBoard {
     this.canvasBoundingRegion = this.canvas.getBoundingClientRect();
     this.mouseOffsetX = parseInt(e.clientX - this.canvasBoundingRegion.x);
     this.mouseOffsetY = parseInt(e.clientY - this.canvasBoundingRegion.y);
+
+    if (this.drawingBoardId === "partD") {
+    for (let obj of this.objectsOnCanvas) {
+        if (obj instanceof VideoObj) {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            let randomColor = `rgb(${r},${g},${b})`;
+            obj.changeColor(randomColor);
+        }
+    }
+}
     //console.log(this.mouseOffsetX, this.mouseOffsetY);
      
     //differentiate which canvas
@@ -76,14 +89,14 @@ class DrawingBoard {
   animate() {
     this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
     for (let i = 0; i < this.objectsOnCanvas.length; i++) {
-      this.objectsOnCanvas[i].update(this.mouseOffsetX, this.mouseOffsetY);
-      this.objectsOnCanvas[i].display();
+     this.objectsOnCanvas[i].update(window.micData, this.mouseOffsetX, this.mouseOffsetY);
+     this.objectsOnCanvas[i].display();
     }
   }
 
   run(videoElement){
     for (let i = 0; i < this.objectsOnCanvas.length; i++) {
-      this.objectsOnCanvas[i].update(videoElement);
+      this.objectsOnCanvas[i].update(videoElement, this.mouseOffsetX, this.mouseOffsetY);
       this.objectsOnCanvas[i].display();
     }
 

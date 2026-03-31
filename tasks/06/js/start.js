@@ -3,6 +3,14 @@ window.onload = go_all_stuff;
 function go_all_stuff(){
 console.log("go");
 
+let colorData = null;
+
+fetch("colors.json")
+  .then(res => res.json())
+  .then(data => {
+    colorData = data.colors;
+  });
+
 /* for loading the video */
 let videoEl = document.getElementById("video-birds");
 window.addEventListener("click", function(){
@@ -11,8 +19,45 @@ window.addEventListener("click", function(){
     }
 })
 
-
 videoEl.loop = true;
+
+/* for microphone */
+window.micData = { frequency: 0, amplitude: 0 };
+
+async function getMicrophoneInput() {
+  console.log("Requesting microphone...");
+
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  let audioContext = new AudioContext();
+
+  try {
+    let audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+    let micSource = audioContext.createMediaStreamSource(audioStream);
+    let analyser = audioContext.createAnalyser();
+    analyser.fftSize = 256;
+    micSource.connect(analyser);
+
+    let dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+    console.log("Microphone access granted");
+
+    window.updateMicData = function () {
+      analyser.getByteFrequencyData(dataArray);
+      let sum = dataArray.reduce((a, b) => a + b, 0);
+
+      window.micData.amplitude = sum / dataArray.length;
+      window.micData.frequency = dataArray[0];
+    };
+
+  } catch (err) {
+    console.error("Microphone access denied:", err);
+  }
+}
+
+
+// Initialize microphone
+getMicrophoneInput();
 
 let theCanvases = document.querySelectorAll(".canvases");
 let theContexts =[];
@@ -41,7 +86,7 @@ drawingBoardB.display();
 
 let drawingBoardC = new DrawingBoard(theCanvases[2],theContexts[2],theCanvases[2].id);
 //add a freestyle object to canvas C
-drawingBoardC.addObj(new FreeStyleObj(10,100,300,"#CF9FFF","#CF9FFF", drawingBoardC.context))
+drawingBoardC.addObj(new FreeStyleObj(0,100,900,"#CF9FFF","#CF9FFF", drawingBoardC.context))
 drawingBoardC.display();
 
 let drawingBoardD = new DrawingBoard(theCanvases[3],theContexts[3],theCanvases[3].id);
@@ -54,8 +99,9 @@ window.requestAnimationFrame(animationLoop);
 
 function animationLoop(){
     /*** CALL THE EACH CANVAS TO ANIMATE INSIDE  */
+    if (window.updateMicData) window.updateMicData();
     drawingBoardA.animate();
-    drawingBoardB.animate();
+    drawingBoardB.animate(window.micData);
     drawingBoardC.animate();
     drawingBoardD.run(videoEl)
     window.requestAnimationFrame(animationLoop);
