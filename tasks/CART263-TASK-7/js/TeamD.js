@@ -17,10 +17,34 @@ export class PlanetD {
         //TODO: Give it a custom material using THREE.MeshStandardMaterial.
         //TODO: Use castShadow and receiveShadow on the mesh and all future ones so they can cast and receive shadows.
         //TODO: Add the planet mesh to the planet group.
+        
+        const planetGeo = new THREE.SphereGeometry(2, 70, 32); // radius between 1.5 and 2
+        const planetMat = new THREE.MeshStandardMaterial({ 
+            color: '#ff0000' 
+        });
+
+        this.mesh = new THREE.Mesh(planetGeo, planetMat);
+        this.mesh.castShadow = true;
+        this.mesh.receiveShadow = true;
+
+        this.group.add(this.mesh);
 
         //STEP 2: 
         //TODO: Add from 1 to 3 orbiting moons to the planet group. 
         //TODO: The moons should rotate around the planet just like the planet group rotates around the Sun.
+
+        const moon1Geo = new THREE.SphereGeometry(1, 70, 32);
+        const moon1Mat = new THREE.MeshStandardMaterial({ 
+            color: '#00a2ff' 
+        });
+
+        this.moon1 = new THREE.Mesh(moon1Geo, moon1Mat);
+        this.mesh.castShadow = true;
+        this.mesh.receiveShadow = true;
+
+        this.moon1.position.set(5, 1, 0); // move moon away from planet
+
+        this.group.add(this.moon1); // add the moon, not the planet
 
         //STEP 3:
         //TODO: Load Blender models to populate the planet with multiple props and critters by adding them to the planet group.
