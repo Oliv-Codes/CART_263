@@ -12,8 +12,8 @@ const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
 scene.add(camera)
 //move camera
 camera.position.z = 5
-camera.position.y = 3
-camera.rotation.x = -.05
+camera.position.y = 4
+camera.rotation.x = -.5
 scene.add(camera)
 
 
@@ -42,12 +42,15 @@ fbxLoader.load('assets/chair_top.fbx', (object) => {
 })
 
 //add planes
-const plane = new THREE.Mesh(
-    new THREE.PlaneGeometry(5, 5),
-    material
-)
-plane.rotation.x = -Math.PI * 0.5
-scene.add(plane)
+const disc = new THREE.CircleGeometry(3, 14);
+const discMat = new THREE.MeshStandardMaterial({
+            color: '#ffffff'
+        });
+        
+const discMesh = new THREE.Mesh(disc, discMat);
+discMesh.rotation.x = -Math.PI / 2;
+scene.add(discMesh)
+
 
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas
