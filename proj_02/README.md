@@ -2,7 +2,4 @@
 
 ## Demo
 
-<video width="800" height="600" controls>
-  <source src="videoshowcase.mp4" type="video/mp4">
- 
-</video>
+[Link] (https://oliv-codes.github.io/CART_263/proj_02/)

@@ -3,14 +3,14 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 let chairTop = null;
 
-let spinSpeed = 0;   // default speed
+let spinSpeed = 0;  
 
 window.addEventListener('mousemove', (event) => {
     const normalizedY = event.clientY / sizes.height;
 
     const inverted =1 - normalizedY;
 
-    spinSpeed = inverted * 0.5;   // adjust 0.1 for max speed
+    spinSpeed = inverted * 0.5;  
 });
 
 const scene = new THREE.Scene()
